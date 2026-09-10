@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Local diagnostic center management system for patient intake, appointments, laboratory workflow and reports.">
+  <title>Diagnostic Center Management System</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <section class="login-screen" id="login-screen">
+    <div class="login-brand">
+      <div class="brand-symbol" aria-hidden="true">△</div>
+      <div>
+        <strong>Diagnostic Center</strong>
+        <span>Management System</span>
+      </div>
+    </div>
+    <div class="login-panel">
+      <div class="login-card">
+        <p class="eyebrow">Secure staff portal</p>
+        <h1>Welcome back</h1>
+        <p class="muted">Sign in with your assigned staff account to continue.</p>
+        <form id="login-form" class="form-stack" autocomplete="on">
+          <label class="field">
+            <span>Username</span>
+            <input name="username" autocomplete="username" required placeholder="Enter username">
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input name="password" type="password" autocomplete="current-password" required placeholder="Enter password">
+          </label>
+          <p class="form-error" id="login-error" role="alert"></p>
+          <button class="button button-primary button-block" type="submit">
+            <span>Sign in</span><span aria-hidden="true">→</span>
+          </button>
+        </form>
+        <div class="demo-logins">
+          <strong>First-run accounts</strong>
+          <span>Admin: admin / Admin@123</span>
+          <span>Reception: reception / Reception@123</span>
+          <span>Laboratory: labtech / Lab@123</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="app-shell hidden" id="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-symbol" aria-hidden="true">△</div>
+        <div><strong>Diagnostic Center</strong><span>Management System</span></div>
+      </div>
+      <p class="nav-heading">Workspace</p>
+      <nav class="sidebar-nav" id="nav-list" aria-label="Main navigation"></nav>
+      <div class="sidebar-footer">
+        <div class="date-card"><span class="date-icon">▣</span><div><strong id="sidebar-day">Today</strong><span id="sidebar-date">—</span><span id="sidebar-time">—</span></div></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menu-button" aria-label="Toggle navigation">☰</button>
+        <div class="topbar-spacer"></div>
+        <button class="icon-button notification-button" aria-label="Notifications"><span>♧</span><b id="notification-count">0</b></button>
+        <div class="account-summary"><span class="avatar" id="header-avatar">U</span><div><strong id="header-name">User</strong><span id="header-role">Staff</span></div></div>
+      </header>
+      <div class="content" id="page-content" tabindex="-1"></div>
+    </main>
+  </div>
+
+  <div class="modal-layer hidden" id="modal-layer" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close dialog">×</button>
+      <div id="modal-content"></div>
+    </section>
+  </div>
+
+  <div class="confirm-layer hidden" id="confirm-layer" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <section class="confirm-card" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title">
+      <div class="confirm-icon">!</div>
+      <h2 id="confirm-title">Confirm action</h2>
+      <p id="confirm-message">Are you sure?</p>
+      <div class="button-row"><button class="button button-secondary" id="confirm-cancel">Cancel</button><button class="button button-danger" id="confirm-ok">Confirm</button></div>
+    </section>
+  </div>
+
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
+
